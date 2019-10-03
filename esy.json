@@ -1,0 +1,47 @@
+{
+  "name": "hello-reason-server",
+  "version": "1.0.0",
+  "license": "MIT",
+  "esy": { "build": "refmterr dune build -p server" },
+  "scripts": {
+    "start": "esy refmterr dune exec src/server.exe -- --port=3000 --debug --verbose",
+    "format": "esy dune build @fmt --auto-promote"
+  },
+  "dependencies": {
+    "@opam/cohttp": "2.3.0",
+    "@opam/cohttp-lwt-unix": "2.3.0",
+    "@opam/conf-openssl": "*",
+    "@opam/dune": "1.11.3",
+    "@opam/fmt": "0.8.8",
+    "@opam/lwt": "4.3.1",
+    "@opam/lwt_ppx": "1.2.3",
+    "@opam/opium": "*",
+    "@opam/opium_core": "*",
+    "@opam/ppx_let": "v0.12.0",
+    "@opam/reason": "*",
+    "@opam/tablecloth-native": "0.0.6",
+    "@opam/uri": "3.0.0",
+    "fetch-native-lwt": "github:lessp/reason-fetch:fetch-native-lwt.json#2ab61bf",
+    "ocaml": "<4.8.0",
+    "refmterr": "^3.2.2"
+  },
+  "devDependencies": { "@opam/merlin": "^3.3.2" },
+  "resolutions": {
+    "@opam/httpaf-lwt-unix": "anmonteiro/httpaf:httpaf-lwt-unix.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
+    "@opam/httpaf-lwt": "anmonteiro/httpaf:httpaf-lwt.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
+    "@opam/httpaf": "anmonteiro/httpaf:httpaf.opam#76b461bed081c64908fb1fdfa076ab2c936ca622",
+    "@opam/merlin-extend": "0.4",
+    "@opam/opium": "rgrinberg/opium:opium.opam#287b83f",
+    "@opam/opium_core": "rgrinberg/opium:opium_core.opam#287b83f",
+    "@opam/reason": "let-def/reason:reason.opam#bd07255b6674c3dfae8edb037b6865f8490abaff",
+    "@opam/conf-openssl": {
+      "source": "no-source:",
+      "override": {
+        "dependencies": {
+          "@opam/conf-pkg-config": "*",
+          "@esy-packages/esy-openssl": "esy-packages/esy-openssl#65efbc9"
+        }
+      }
+    }
+  }
+}

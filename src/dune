@@ -1,0 +1,13 @@
+(executable
+ (name server)
+ (preprocess (pps lwt_ppx))
+ (libraries console.lib tablecloth-native opium cohttp cohttp-lwt-unix uri lwt_ppx logs.fmt))
+
+
+(env
+ (static
+  (flags
+   (:standard -ccopt -static)
+  )
+ )
+)
