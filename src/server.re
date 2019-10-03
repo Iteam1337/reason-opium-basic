@@ -4,10 +4,8 @@ open Lwt.Infix;
 let auth_header =
   post("/auth", req => {
     let result =
-      switch (Cohttp.Header.get(req |> Request.headers, "Authorization")) {
-      | Some(auth) => auth
-      | None => "None"
-      };
+      Cohttp.Header.get(req |> Request.headers, "Authorization")
+      |> Tablecloth.Option.withDefault(~default="None");
 
     `String(result) |> respond';
   });
