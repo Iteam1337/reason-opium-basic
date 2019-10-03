@@ -54,6 +54,8 @@ let () = {
 
   switch (app) {
   | `Ok(app) =>
+    print_endline("Listening on port 3000");
+
     let s =
       Logging.log_reporter()
       >>= (
